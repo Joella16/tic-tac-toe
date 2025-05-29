@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #1e1e2f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: #e0e0e0;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #39ff14;
+  text-shadow: 1px 1px #000;
+}
+
+#levelDisplay {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #ccccff;
+}
+
+.controls input,
+.controls select {
+  padding: 8px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #444;
+  font-size: 1rem;
+  background: #2e2e3e;
+  color: #e0e0e0;
+}
+
+.controls button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  background: #39ff14;
+  color: #1e1e2f;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#board {
+  display: none;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+  margin: 20px auto;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: #2e2e3e;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: background 0.2s;
+}
+
+.cell:hover {
+  background: #444;
+}
+
+.cell.x { color: #00bfff; }
+.cell.o { color: #ff1493; }
+
+#status, #levelComplete {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fffbcc;
+}
+
+#levelComplete {
+  color: #39ff14;
+  display: none;
+}
+
+#restart, #nextLevel {
+  background: #39ff14;
+  color: #1e1e2f;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.star {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: yellow;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  animation: starburst 1s ease forwards;
+}
+
+@keyframes starburst {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.5); opacity: 1; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+@media (max-width: 500px) {
+  #board { grid-template-columns: repeat(3, 80px); }
+  .cell { width: 80px; height: 80px; font-size: 1.5rem; }
+}
